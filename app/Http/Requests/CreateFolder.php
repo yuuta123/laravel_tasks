@@ -13,7 +13,14 @@ class CreateFolder extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'フォルダ名',
+        ];
     }
 
     /**
@@ -24,7 +31,7 @@ class CreateFolder extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:20',
         ];
     }
 }
